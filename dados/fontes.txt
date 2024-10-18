@@ -1,0 +1,2 @@
+ServidoresMG_0824 >> https://www.transparencia.mg.gov.br/estado-pessoal/remuneracao-dos-servidores (portal da transparência do Estado de Minas Gerais)
+Correlação entre nomes e sexo de servidores >> https://github.com/turicas/genero-nomes
