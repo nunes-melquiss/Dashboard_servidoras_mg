@@ -28,9 +28,6 @@ with aba1:
         st.metric(label="Numero de servidores analisados*", value=format_number(n_mulheres+n_homens))
 
 
-
-
-
     col5a, colmeio, col5b = st.columns([2,0.5,2])
 
     with col5a:
@@ -74,9 +71,6 @@ with aba1:
         yaxis_title="Soma de Horas Acumuladas",)
         st.plotly_chart(fig4)
 
-
-
- 
 
 
 
