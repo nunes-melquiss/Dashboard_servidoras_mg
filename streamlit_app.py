@@ -18,7 +18,6 @@ aba1, aba2 = st.tabs(['Análises','Metodologia'])
 with aba1:
     st.subheader('Em resumo...')
 
-
     n_mulheres = df_correlacionado[df_correlacionado['Sexo provavel do servidor'] == 'F'].shape[0]
     n_homens = df_correlacionado[df_correlacionado['Sexo provavel do servidor'] == 'M'].shape[0]
     percentual_mulheres = f'{round(n_mulheres / (n_mulheres + n_homens) * 100)}%'
