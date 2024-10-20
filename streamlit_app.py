@@ -12,7 +12,7 @@ from utils import format_number
 st.set_page_config(layout="wide",page_title="Servidoras em MG")
 st.title("Representação Feminina no Funcionalismo Público de MG :small_red_triangle:")
 
-aba1, aba2 = st.tabs(['Dashboard','Metodologia'])
+aba1, aba2 = st.tabs(['Análises','Metodologia'])
 
 
 with aba1:
