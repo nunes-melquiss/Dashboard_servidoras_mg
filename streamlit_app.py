@@ -17,7 +17,7 @@ aba1, aba2 = st.tabs(['Dashboard','Metodologia'])
 
 with aba1:
     st.subheader('Em resumo...')
-    st.subheader('\n')
+
 
     n_mulheres = df_correlacionado[df_correlacionado['Sexo provavel do servidor'] == 'F'].shape[0]
     n_homens = df_correlacionado[df_correlacionado['Sexo provavel do servidor'] == 'M'].shape[0]
@@ -25,9 +25,9 @@ with aba1:
 
     col0a, col0b, col0c = st.columns([1,1,1])
     with col0a:
-        st.metric(label="Numero de servidores analisados ₁", value=format_number(n_mulheres+n_homens))
+        st.metric(label="Numero de servidores analisados*", value=format_number(n_mulheres+n_homens))
 
-    st.subheader("\n")
+
 
 
 
@@ -46,7 +46,7 @@ with aba1:
                                                   color='white',
                                                   family='Arial',
                                                   weight='bold'))])
-        fig.update_layout(title_text="Os servidores analisados são: ₂", showlegend=False)
+        fig.update_layout(title_text="Os servidores analisados são:*", showlegend=False)
         st.plotly_chart(fig)
 
         st.subheader("\n \n")
@@ -324,3 +324,55 @@ with aba1:
     st.write('Me ajude a terminar de construir esse dashboard, o que você gostaria de ver aqui?')
     st.write('Para entrar em contato comigo: https://www.linkedin.com/in/melquisedeque-nunes/')
 
+with aba2:
+    st.subheader("Metodologia Utilizada")
+
+    st.markdown("""
+    A análise da representação feminina no funcionalismo público de Minas Gerais foi conduzida utilizando um conjunto de dados robusto, adotando uma abordagem metódica para garantir a precisão e a relevância dos resultados. A seguir, descrevo as etapas detalhadas do processo metodológico:
+
+    1. **Coleta de Dados**:
+    - Os dados foram obtidos do **"Portal da Transparência do Estado de Minas Gerais"**, que disponibiliza informações sobre servidores públicos estaduais, incluindo:
+        - **Nome do Servidor**
+        - **Ocupação**
+        - **Órgão**
+        - **Unidade**
+        - **Carga Horária**
+        - **Remuneração**
+    - Esses dados são fundamentais para a análise da composição de gênero e das condições laborais dos servidores, proporcionando uma base sólida para a investigação.
+
+    2. **Limpeza e Preparação dos Dados**:
+    - Inicialmente, realizei a limpeza do conjunto de dados para remover colunas irrelevantes que não contribuíam para a análise de gênero e remuneração. As colunas descartadas incluíam identificadores e dados auxiliares.
+    - As colunas restantes foram renomeadas para facilitar a interpretação, resultando em um dataframe intuitivo.
+    - Para assegurar a integridade dos dados, as colunas de **"Remuneração"** e **"Carga Horária"** foram convertidas de strings para valores numéricos. Esse processo envolveu a substituição de vírgulas por pontos, permitindo cálculos precisos.
+
+    3. **Correlação de Sexo**:
+    - Uma etapa crítica da análise foi a correlação entre os nomes dos servidores e seus respectivos sexos. Para isso:
+        - Utilizei uma base de dados de nomes e suas prováveis classificações de gênero, de acordo com o IBGE, obtida de um trabalho realizado por Álvaro Justen.
+        - O primeiro nome de cada servidor foi extraído e comparado com esta base, permitindo determinar o sexo mais provável.
+        - Esta abordagem resultou na criação da coluna **"Sexo provável do servidor"**, essencial para análises subsequentes.
+
+    4. **Filtragem de Dados**:
+    - Após a correlação, registros sem uma classificação de sexo foram eliminados, garantindo que o dataframe final inclua apenas servidores com sexo identificado. Essa filtragem é crucial para assegurar que as análises subsequentes sejam baseadas em dados representativos e quase confiáveis (considerando a possibilidade de nomes não usuais e não etrando em questões de identidade de genêro por falta de dados).
+
+    5. **Análise Estatística e Visualização**:
+    - Com o conjunto de dados devidamente preparado, foram realizadas análises estatísticas abrangentes, incluindo:
+        - Cálculo do número total de servidores.
+        - Análise da distribuição de gênero entre os servidores.
+        - Comparação da carga horária e da remuneração acumulada entre homens e mulheres.
+    - Utilizando as bibliotecas **Plotly** e **Streamlit**, foram gerados gráficos interativos que facilitam a visualização dos dados. Os principais gráficos incluem:
+        - **Gráfico de Pizza**: Para visualizar a proporção de servidores por gênero.
+        - **Gráficos de Barras**: Para comparar a soma de carga horária e remuneração acumulada entre os gêneros.
+        - **Distribuições Salariais**: Para analisar a distribuição de salários por gênero em diferentes órgãos.
+
+    6. **Interpretação dos Resultados**:
+    - Os resultados foram contextualizados em relação à composição de gênero nos órgãos públicos e à política de remuneração, permitindo discussões sobre padrões de desigualdade salarial. Observou-se uma predominância feminina em setores com remunerações geralmente inferiores, indicando possíveis áreas de intervenção.
+    - A análise identificou potenciais causas da desigualdade de gênero no funcionalismo público, contribuindo para uma compreensão mais profunda da situação atual.
+
+    ### Status do Trabalho
+    O trabalho ainda está em andamento, com novas análises sendo incrementadas. O objetivo é aprofundar a compreensão das dinâmicas de gênero no funcionalismo público e explorar variáveis adicionais que possam influenciar os resultados encontrados.
+
+    ### Escolha da Plataforma
+    A escolha do **Streamlit** como plataforma para esta publicação se deu por sua flexibilidade e facilidade de uso. O Streamlit permite a criação de aplicações interativas de forma rápida e eficiente, tornando a visualização de dados acessível e envolvente. Isso é essencial para apresentar insights de maneira clara e impactante.
+
+    Esta metodologia oferece um panorama abrangente e fundamentado sobre a representação feminina no funcionalismo público de Minas Gerais, permitindo reflexões sobre as implicações sociais e políticas dessas descobertas.
+    """)
