@@ -54,7 +54,6 @@ with aba1:
         rotulos4 = [f'Mulheres:<br>{format_number(valores4[0])}', 
                 f'Homens:<br>{format_number(valores4[1])}']
 
-
         fig4 = go.Figure(data=[go.Bar(x=labels4, y=valores4, 
                                     marker=dict(color=['#FF0000', '#808080']),
                                     text=rotulos4,
